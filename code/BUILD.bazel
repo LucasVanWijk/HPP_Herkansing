@@ -1,0 +1,31 @@
+cc_library(
+    name = "bucket_sort",
+    srcs = ["bucket_sort.cpp"],
+    hdrs = ["bucket_sort.hpp"],
+    visibility = ["//code:__pkg__"],
+)
+cc_library(
+    name = "merge_sort",
+    srcs = ["merge_sort.cpp"],
+    hdrs = ["merge_sort.hpp"],
+    visibility = ["//code:__pkg__"],
+)
+cc_library(
+    name = "merge_sort_thread",
+    srcs = ["merge_sort_threaded.cpp"],
+    hdrs = ["merge_sort_threaded.hpp"],
+    visibility = ["//code:__pkg__"],
+)
+
+cc_test(
+    name = "test",
+    srcs = ["test.cpp"],
+    copts = ["-std=c++14"],
+    deps = [
+        "@catch2//:catch2_main",
+        ":bucket_sort",
+        ":merge_sort",
+        ":merge_sort_thread",
+    ],
+    visibility = ["//code:__pkg__"],
+)

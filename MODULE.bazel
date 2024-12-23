@@ -1,0 +1,2 @@
+module(name = "hpp", version = "1.0")
+bazel_dep(name = "catch2", version = "3.7.1")
